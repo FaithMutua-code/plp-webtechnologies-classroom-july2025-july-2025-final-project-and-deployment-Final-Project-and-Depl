@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Water Status - AquaTrack</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0EA5E9"/>
+                                <stop offset="50%" style="stop-color:#3B82F6"/>
+                                <stop offset="100%" style="stop-color:#8B5CF6"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="url(#logoGradient)"/>
+                    </svg>
+                    <h1>AquaTrack</h1>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="report.html" class="nav-link active">Report</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+            </ul>
+            <div class="nav-mobile">
+                <button class="nav-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Report Water Status</h1>
+                <p class="page-description">
+                    Help your community by reporting current water availability in your area. 
+                    Your reports help others stay informed about water access.
+                </p>
+            </div>
+        </section>
+
+        <section class="report-form">
+            <div class="container">
+                <div class="form-container">
+                    <form id="waterReportForm" class="form">
+                        <div class="form-group">
+                            <label for="reporterName" class="form-label">Your Name</label>
+                            <input 
+                                type="text" 
+                                id="reporterName" 
+                                name="reporterName" 
+                                class="form-input" 
+                                placeholder="Enter your name"
+                                required
+                            >
+                            <span class="form-error" id="reporterNameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location" class="form-label">Location</label>
+                            <input 
+                                type="text" 
+                                id="location" 
+                                name="location" 
+                                class="form-input" 
+                                placeholder="e.g., Kibera, Nairobi"
+                                required
+                            >
+                            <span class="form-error" id="locationError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="waterStatus" class="form-label">Water Status</label>
+                            <select id="waterStatus" name="waterStatus" class="form-select" required>
+                                <option value="">Select water status</option>
+                                <option value="available">Water Available</option>
+                                <option value="shortage">Water Shortage</option>
+                                <option value="truck-delivery">Truck Delivery Expected</option>
+                                <option value="no-water">No Water Access</option>
+                            </select>
+                            <span class="form-error" id="waterStatusError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="priority" class="form-label">Priority Level</label>
+                            <select id="priority" name="priority" class="form-select" required>
+                                <option value="">Select priority</option>
+                                <option value="low">Low - Adequate supply</option>
+                                <option value="medium">Medium - Limited supply</option>
+                                <option value="high">High - Critical shortage</option>
+                                <option value="urgent">Urgent - Emergency situation</option>
+                            </select>
+                            <span class="form-error" id="priorityError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes" class="form-label">Additional Notes</label>
+                            <textarea 
+                                id="notes" 
+                                name="notes" 
+                                class="form-textarea" 
+                                rows="4"
+                                placeholder="Provide additional details about the water situation..."
+                            ></textarea>
+                            <span class="form-error" id="notesError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="contactConsent" name="contactConsent" required>
+                                <span class="form-checkbox-mark"></span>
+                                I consent to being contacted for follow-up information about this report
+                            </label>
+                            <span class="form-error" id="contactConsentError"></span>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-full">Submit Report</button>
+                            <button type="reset" class="btn btn-secondary btn-full">Reset Form</button>
+                        </div>
+                    </form>
+
+                    <div class="success-message" id="successMessage" style="display: none;">
+                        <div class="success-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#059669" stroke-width="2" fill="none"/>
+                                <path d="M22 4L12 14.01l-3-3" stroke="#059669" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>Report Submitted Successfully!</h3>
+                        <p>Thank you for contributing to community water tracking. Your report helps others stay informed.</p>
+                        <button onclick="resetForm()" class="btn btn-outline">Submit Another Report</button>
+                    </div>
+                </div>
+
+                <div class="report-tips">
+                    <h3>Reporting Tips</h3>
+                    <ul class="tips-list">
+                        <li>Be specific about your location to help others in your area</li>
+                        <li>Update your report if the situation changes significantly</li>
+                        <li>Include details about expected delivery times if known</li>
+                        <li>Report urgent situations with high priority</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#0EA5E9"/>
+                                    <stop offset="100%" style="stop-color:#3B82F6"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="url(#footerLogoGradient)"/>
+                        </svg>
+                        <span>AquaTrack</span>
+                    </div>
+                    <p>Tracking urban water availability for better community resource management.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="report.html">Report Status</a></li>
+                        <li><a href="schedule.html">View Schedule</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AquaTrack. Built to address urban water challenges in Kenya.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/report.js"></script>
+</body>
+</html>

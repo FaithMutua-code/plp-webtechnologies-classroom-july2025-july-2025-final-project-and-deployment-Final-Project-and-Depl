@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Water Tracking - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0EA5E9"/>
+                                <stop offset="50%" style="stop-color:#3B82F6"/>
+                                <stop offset="100%" style="stop-color:#8B5CF6"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="url(#logoGradient)"/>
+                    </svg>
+                    <h1>AquaTrack</h1>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="report.html" class="nav-link">Report</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+            </ul>
+            <div class="nav-mobile">
+                <button class="nav-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Track Urban Water Availability</h1>
+                    <p class="hero-description">
+                        Help your community stay informed about water availability and scheduled deliveries 
+                        across urban areas in Kenya. Report water status, view delivery schedules, and 
+                        contribute to better water management.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="report.html" class="btn btn-primary">Report Water Status</a>
+                        <a href="schedule.html" class="btn btn-secondary">View Schedule</a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M14 2v6h6" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M16 13H8" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M16 17H8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="totalReports">247</span>
+                            <span class="stat-label">Active Reports</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="totalLocations">156</span>
+                            <span class="stat-label">Locations</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="12 6v6l4 2" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="totalDeliveries">23</span>
+                            <span class="stat-label">Deliveries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recent-reports">
+            <div class="container">
+                <h2 class="section-title">Recent Reports</h2>
+                <div class="reports-grid" id="recentReportsGrid">
+                    <!-- Reports will be dynamically loaded here -->
+                </div>
+                <div class="section-actions">
+                    <a href="report.html" class="btn btn-outline">Submit New Report</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">About AquaTrack</h2>
+                        <p class="about-description">
+                            AquaTrack addresses the growing issue of water scarcity in urban areas across Kenya. 
+                            Our platform enables residents to report water availability status, view scheduled 
+                            water truck deliveries, and stay informed about water access in their communities.
+                        </p>
+                        <ul class="about-features">
+                            <li>Real-time water availability reporting</li>
+                            <li>Scheduled delivery tracking</li>
+                            <li>Community-driven data collection</li>
+                            <li>Mobile-friendly interface</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                             alt="Water collection in urban area" 
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#0EA5E9"/>
+                                    <stop offset="100%" style="stop-color:#3B82F6"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="url(#footerLogoGradient)"/>
+                        </svg>
+                        <span>AquaTrack</span>
+                    </div>
+                    <p>Tracking urban water availability for better community resource management.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="report.html">Report Status</a></li>
+                        <li><a href="schedule.html">View Schedule</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AquaTrack. Built to address urban water challenges in Kenya.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

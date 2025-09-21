@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Schedule - AquaTrack</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0EA5E9"/>
+                                <stop offset="50%" style="stop-color:#3B82F6"/>
+                                <stop offset="100%" style="stop-color:#8B5CF6"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="url(#logoGradient)"/>
+                    </svg>
+                    <h1>AquaTrack</h1>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="report.html" class="nav-link">Report</a></li>
+                <li><a href="schedule.html" class="nav-link active">Schedule</a></li>
+            </ul>
+            <div class="nav-mobile">
+                <button class="nav-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Water Delivery Schedule</h1>
+                <p class="page-description">
+                    View scheduled water truck deliveries in your area. Times are approximate and may change due to traffic or operational needs.
+                </p>
+            </div>
+        </section>
+
+        <section class="schedule-filters">
+            <div class="container">
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="locationFilter" class="filter-label">Filter by Location:</label>
+                        <input 
+                            type="text" 
+                            id="locationFilter" 
+                            class="filter-input" 
+                            placeholder="Enter location..."
+                            onkeyup="filterSchedule()"
+                        >
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateFilter" class="filter-label">Filter by Date:</label>
+                        <select id="dateFilter" class="filter-select" onchange="filterSchedule()">
+                            <option value="all">All Dates</option>
+                            <option value="today">Today</option>
+                            <option value="tomorrow">Tomorrow</option>
+                            <option value="week">This Week</option>
+                        </select>
+                    </div>
+                    <button onclick="clearFilters()" class="btn btn-outline">Clear Filters</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="delivery-schedule">
+            <div class="container">
+                <div class="schedule-grid" id="scheduleGrid">
+                    <!-- Schedule items will be dynamically loaded here -->
+                </div>
+
+                <div class="no-results" id="noResults" style="display: none;">
+                    <div class="no-results-icon">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="8" stroke="#6B7280" stroke-width="2" fill="none"/>
+                            <path d="M21 21l-4.35-4.35" stroke="#6B7280" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>No deliveries found</h3>
+                    <p>No scheduled deliveries match your current filters.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="schedule-info">
+            <div class="container">
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#0EA5E9" stroke-width="2" fill="none"/>
+                                <path d="12 6v6l4 2" stroke="#0EA5E9" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>Delivery Times</h3>
+                        <p>All delivery times are approximate. Actual arrival may vary by 30-60 minutes due to traffic and operational factors.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#059669" stroke-width="2" fill="none"/>
+                                <circle cx="12" cy="10" r="3" stroke="#059669" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>Locations</h3>
+                        <p>Delivery locations are marked with GPS coordinates. Look for the water truck at the specified location during the scheduled time.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#EA580C" stroke-width="2" fill="none"/>
+                                <path d="M14 2v6h6" stroke="#EA580C" stroke-width="2" fill="none"/>
+                                <path d="M16 13H8" stroke="#EA580C" stroke-width="2" fill="none"/>
+                                <path d="M16 17H8" stroke="#EA580C" stroke-width="2" fill="none"/>
+                                <path d="M10 9H8" stroke="#EA580C" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>Updates</h3>
+                        <p>Schedule changes and new deliveries are updated regularly. Check back frequently for the latest information.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#0EA5E9"/>
+                                    <stop offset="100%" style="stop-color:#3B82F6"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="url(#footerLogoGradient)"/>
+                        </svg>
+                        <span>AquaTrack</span>
+                    </div>
+                    <p>Tracking urban water availability for better community resource management.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="report.html">Report Status</a></li>
+                        <li><a href="schedule.html">View Schedule</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AquaTrack. Built to address urban water challenges in Kenya.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/schedule.js"></script>
+</body>
+</html>
