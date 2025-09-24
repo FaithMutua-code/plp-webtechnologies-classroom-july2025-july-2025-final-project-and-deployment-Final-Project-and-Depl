@@ -1,90 +1,96 @@
-# 📦 Final Assignment: Build, Organize, and Deploy a Multipage Website
+# AquaTrack 💧
 
-You're now ready to bring everything together—HTML, CSS, JavaScript, planning, structure, and deployment. This final project challenges you to **conceptualize, build, and deploy a multi-page website** that is responsive, interactive, and ready for the real world.
 
-This assignment will guide you from planning your site all the way to deploying it online. Let’s make your project *production-worthy*! 🚀
 
----
+AquaTrack is a community-driven, web-based platform designed to tackle water scarcity challenges in urban areas of Kenya 🌍. It empowers residents to report real-time water availability 🚰, track scheduled water truck deliveries 🚚, and access critical water access information to improve community resource management.
 
-## 🌐🎯 Part 1: Planning and Organizing a Multipage Website
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [File Structure](#file-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Future Enhancements](#future-enhancements)
 
-Before you write any code, take time to plan:
 
-* Define your website's purpose (portfolio, product showcase, blog, etc.)
-* Outline 3–5 pages (e.g., Home, About, Services, Contact, Gallery)
-* Sketch or describe the layout of each page
-* Map out internal navigation (how pages link to one another)
+## Project Overview
+AquaTrack addresses the pressing issue of water scarcity in Kenya's urban centers by providing a user-friendly platform for residents to:
+- Report water availability or shortages in their area 💧.
+- View scheduled water truck deliveries with approximate times and GPS locations 🚚.
+- Contribute to a community-driven database for better water resource management 🌊.
 
-**Goal:** Show intentional structure and user journey across the site.
+The platform is designed to be mobile-friendly 📱, ensuring accessibility for users across devices, and aims to foster collaboration among communities to ensure equitable water access.
 
----
+## Features
+- **Real-Time Water Status Reporting** 💧: Submit reports on water availability, shortages, or expected truck deliveries with priority levels (Low, Medium, High, Urgent).
+- **Delivery Schedule Tracking** 🚚: View and filter water truck delivery schedules by location or date (e.g., Today, Tomorrow, This Week).
+- **Community-Driven Insights** 🌍: Aggregates user-submitted reports to display active reports, locations, and deliveries.
+- **Mobile-Friendly Interface** 📱: Optimized for seamless use on smartphones, tablets, and desktops.
+- **Actionable Notifications** 🔔: Provides updates on schedule changes and new delivery information.
 
-## 🌍💻 Part 2: Build the Website Using HTML5, CSS, and JavaScript
+## Technologies Used
+- **HTML5**: Core structure for the web pages.
+- **CSS3**: Styling for a clean, responsive, and user-friendly interface.
+- **JavaScript** (assumed): For dynamic filtering and form handling (not explicitly shown in provided files but implied for interactivity).
+- **No Backend Dependencies** (current state): Static HTML pages; future enhancements may include a backend for data storage.
 
-Using your plan, begin building:
 
-* Use HTML5 for semantic structure
-* Apply CSS for responsive layout, styling, and animations
-* Use JavaScript to add interactivity (menus, forms, toggles, dynamic content)
 
-Each page should:
+## Installation
+To run AquaTrack locally:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<your-username>/aquatrack.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd aquatrack
+   ```
 
-* Be mobile-responsive
-* Share a consistent layout/header/footer
-* Include at least one interactive element (e.g., form validation, toggle menu, animation on scroll)
 
-**Goal:** Integrate everything you’ve learned in a cohesive, functioning project.
+## Usage
+### Home Page (`index.html`) 🏠
+- **Overview**: Displays AquaTrack’s mission, current statistics (e.g., 247 active reports, 156 locations, 23 deliveries), and links to report or view schedules.
+- **Navigation**: Use the top navigation bar or quick links to access the Report and Schedule pages.
 
----
+### Report Page (`report.html`) 💧
+- **Purpose**: Allows users to submit water status reports.
+- **Steps**:
+  1. Enter your name and location.
+  2. Select water status (e.g., Water Available 🚰, Water Shortage, etc.).
+  3. Choose a priority level (Low to Urgent).
+  4. Add optional notes and consent to follow-up if needed.
+  5. Submit the report or reset the form.
+- **Tips**: Follow the provided reporting tips for accurate and helpful submissions.
 
-## 🛠️🚀 Part 3: Best Practices for Code Organization
+### Schedule Page (`schedule.html`) 🚚
+- **Purpose**: Displays water truck delivery schedules.
+- **Features**:
+  - Filter deliveries by location or date (All Dates, Today, Tomorrow, This Week).
+  - View approximate delivery times (with a 30-60 minute variance).
+  - Check GPS-marked locations for precise delivery points 📍.
+  - Clear filters to reset the view.
 
-Before deployment, refactor your project to follow production-friendly practices:
+## Contributing
+We welcome contributions to enhance AquaTrack! To contribute:
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your feature description"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a pull request with a clear description of your changes.
 
-* Organize files in folders (`/css`, `/js`, `/images`, etc.)
-* Write clean, modular, and commented code
-* Use meaningful file names and relative paths
-* Validate your HTML/CSS and test on different screen sizes
+Please ensure your contributions align with AquaTrack’s mission to improve water access in Kenya 🌍. For major changes, open an issue first to discuss your ideas.
 
-**Goal:** Prepare your codebase to be readable, maintainable, and scalable.
-
----
-
-## 🌐🚀 Part 4: Introduction to Hosting and Deployment
-
-Once your project is complete, choose a method to **host your site online**.
-
-You can use:
-
-* **GitHub Pages** (great for portfolios and static sites)
-* **Netlify** (powerful CI/CD features and easy form support)
-* **Vercel** (lightning-fast deployment for frontend projects)
-
-Deploy your project and confirm that:
-
-* All links and scripts work
-* It loads properly on mobile and desktop
-* It has a clear, shareable URL
-
-**Goal:** Publish your work online and make it accessible to the world.
-
----
-
-## Deliverables
-
-1. A GitHub repository containing:
-
-   * Your complete project code, properly organized
-   * A `README.md` file explaining your project purpose, structure, and live URL
-2. A live deployed website (hosted via GitHub Pages, Netlify, or Vercel)
-
----
-
-## Outcome
-
-* Clarity and thoroughness of planning documentation
-* Proper use of HTML5, CSS, and JavaScript across multiple pages
-* Responsive and accessible design
-* Clean, well-organized, and commented code
-* Successful live deployment with a working link
-* Evidence of following best practices
+## Future Enhancements
+- **Backend Integration** 🗄️: Add a database
