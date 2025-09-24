@@ -285,6 +285,7 @@ p {
     opacity: 0.95;
     line-height: 1.7;
     font-weight: 400;
+    color: black;
 }
 
 .hero-actions {
