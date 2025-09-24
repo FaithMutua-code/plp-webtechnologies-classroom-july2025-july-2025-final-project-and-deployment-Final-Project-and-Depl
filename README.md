@@ -8,6 +8,7 @@ AquaTrack is a community-driven, web-based platform designed to tackle water sca
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Deployment](#Deployment)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -36,6 +37,9 @@ The platform is designed to be mobile-friendly 📱, ensuring accessibility for 
 - **No Backend Dependencies** (current state): Static HTML pages; future enhancements may include a backend for data storage.
 
 
+## Deployment
+AquaTrack is deployed and accessible at:  
+🌐 [aquatrackk.vercel.app](https://aquatrackk.vercel.app) 
 
 ## Installation
 To run AquaTrack locally:
