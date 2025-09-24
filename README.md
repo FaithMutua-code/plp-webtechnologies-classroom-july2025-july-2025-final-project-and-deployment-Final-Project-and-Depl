@@ -8,7 +8,6 @@ AquaTrack is a community-driven, web-based platform designed to tackle water sca
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [File Structure](#file-structure)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
